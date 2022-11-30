@@ -10,11 +10,9 @@ const app = express();
 
 app.get("/", async (req, res) => {
   const testId = req.query.id;
-  console.log("QUERY", req.query, testId);
   const results = await WPTService.getJsonResults({ testId });
-  console.log("TEST RESULT", results);
   await fs.promises.writeFile(
-    `./results/${results}.json`,
+    `./results/${testId}.json`,
     JSON.stringify(results, null, 2)
   );
 });

@@ -7,6 +7,9 @@ export default class WPT {
   constructor() {
     this.axiosInstance = axios.create({
       baseURL: WPT_DOMAIN,
+      headers: {
+        "accept-encoding": "null",
+      },
       params: {
         k: process.env.WEB_PAGE_TEST_API_KEY,
       },
@@ -15,18 +18,30 @@ export default class WPT {
 
   async runTest({ config }) {
     const runConfig = { ...runDefaultConfig, ...config };
-    await this.axiosInstance.get(WPT_PATHS.run, { params: runConfig });
+    const response = await this.axiosInstance.get(WPT_PATHS.run, {
+      params: runConfig,
+    });
+    return response.data;
   }
 
   async checkTestStatus({ testId }) {
-    this.axiosInstance.get(WPT_PATHS.checkStatus, { params: { test: testId } });
+    const response = await this.axiosInstance.get(WPT_PATHS.checkStatus, {
+      params: { test: testId },
+    });
+    return response.data;
   }
 
   async getJsonResults({ testId }) {
-    this.axiosInstance.get(WPT_PATHS.jsonResult, { params: { test: testId } });
+    const response = await this.axiosInstance.get(WPT_PATHS.jsonResult, {
+      params: { test: testId },
+    });
+    return response.data;
   }
 
   async cancelTest({ testId }) {
-    this.axiosInstance.get(WPT_PATHS.cancel, { params: { test: testId } });
+    const response = await this.axiosInstance.get(WPT_PATHS.cancel, {
+      params: { test: testId },
+    });
+    return response.data;
   }
 }
