@@ -1,8 +1,8 @@
 export const runDefaultConfig = {
   url: undefined,
   label: undefined,
-  runs: 2,
-  location: "gce-europe-west4:Chrome.4G",
+  runs: 3,
+  location: "ec2-eu-west-3:Chrome.4G",
   video: 1,
   lighthouse: 1,
   f: "json",
