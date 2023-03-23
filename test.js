@@ -31,14 +31,14 @@ const mapPaths = [
 ]
 const marketPaths = [
   // Market
-  "shop/",
   "assets/monowheel/0ca92f52-d693-4fbd-82eb-df1c7db3c4d9/",
-  "collections/",
-  "collections/parisland/200/",
   "avatars/",
   "avatars/octohedz-vx/206/",
-  "nft/",
+  "collections/",
+  "collections/parisland/200/",
   "nft-lands/",
+  "nft/",
+  "shop/",
 ]
 const blogPaths = [
   // Blog
@@ -47,15 +47,20 @@ const blogPaths = [
 ]
 const userPaths = [
   // User
-  "me/profile/",
+  "me/avatar/",
+  "me/badges/",
+  "me/bridge/",
   "me/claim/",
   "me/defi/",
-  "me/badges/",
-  "me/referral/",
+  "me/edit/",
   "me/inventory/?sections=0",
-  "me/claim/",
-  "me/avatar/",
+  "me/migration/",
+  "me/profile/",
+  "me/referral/",
   "me/settings/",
+  "me/settings/account-verification",
+  "me/settings/chain",
+  "me/settings/security",
 ]
 const createPaths = [
   // Create
@@ -65,10 +70,23 @@ const createPaths = [
 const aboutPaths = [
   // About
   "about/",
+  "about/land/",
+  "about/sand/",
 ]
 const landsalePaths = [
-  // Landsale
-  "landsale/"
+  // // Landsale
+  // "landsale/"
+];
+const agenciesPaths = [
+  // Agencies
+  "agencies/",
+  "agencies/directory/",
+  "agencies/directory/4018211895",
+  "partnerships/",
+];
+const cartPaths = [
+  // cart
+  "cart/"
 ];
 
 const pathsToTest = [
@@ -80,7 +98,9 @@ const pathsToTest = [
   ...userPaths,
   ...createPaths,
   ...aboutPaths,
-  ...landsalePaths
+  ...landsalePaths,
+  ...cartPaths,
+  ...agenciesPaths
 ]
 
 const DESCRIPTION = ''
