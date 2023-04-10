@@ -1,7 +1,7 @@
 export const runDefaultConfig = {
   url: undefined,
   label: undefined,
-  runs: 3,
+  runs: 2,
   location: "ec2-eu-west-3:Chrome.4G",
   video: 1,
   lighthouse: 1,

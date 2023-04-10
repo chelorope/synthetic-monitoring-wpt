@@ -2,10 +2,10 @@
   "name": "synthetic-monitoring-wpt",
   "version": "1.0.0",
   "description": "Synthetic Monitoring using Web Page Test",
-  "main": "test.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "node test"
+    "test": "node index"
   },
   "repository": {
     "type": "git",
