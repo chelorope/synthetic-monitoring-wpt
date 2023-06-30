@@ -1,0 +1,5 @@
+1. Change token on .env
+2. Change 'DESCRIPTION' on .env
+3. Change path-to-test (optional)
+4. Change envitronmanet on .env
+5. Run node index
