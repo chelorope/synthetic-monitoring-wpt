@@ -5,8 +5,17 @@ import { ENVIRONMENTS_CONFIG } from "./constants.js";
 
 dotenv.config();
 
-const TSB_AUTH_TOKEN = process.env.TSB_AUTH_TOKEN;
-const CURRENT_ENV = process.env.CURRENT_ENV || "production";
+const {TSB_AUTH_TOKEN, CURRENT_ENV, DESCRIPTION} = process.env;
+if (!CURRENT_ENV) {
+  throw "CURRENT_ENV is required in .env file"
+}
+if (!TSB_AUTH_TOKEN) {
+  throw "TSB_AUTH_TOKEN is required in .env file"
+}
+if (!DESCRIPTION) {
+  throw "DESCRIPTION is required in .env file"
+}
+
 const { apiHost, feHost, protocol, tokenCookie } =
   ENVIRONMENTS_CONFIG[CURRENT_ENV];
 
@@ -16,8 +25,6 @@ const dateString = new Date().toLocaleDateString("en-US", {
   month: "long",
   day: "numeric",
 });
-
-const DESCRIPTION = "Performance test";
 
 Promise.all(
   PathsToTest.map(async (path) => {
