@@ -85,7 +85,7 @@ export default [
   // ...userPaths,
   ...createPaths,
   ...aboutPaths,
-  // ...landsalePaths,
-  // ...cartPaths,
+  ...landsalePaths,
+  ...cartPaths,
   ...agenciesPaths,
 ];

@@ -26,7 +26,7 @@ export const ENVIRONMENTS_CONFIG = Object.freeze({
     apiHost: "api-qa3.sandbox.game",
     feHost: "qa3.sandbox.game",
     protocol: "https",
-    tokenCookie: "tsb_www_token",
+    tokenCookie: "tsb_qa3_token",
   },
   develop: {
     apiHost: "api-develop.sandbox.game",

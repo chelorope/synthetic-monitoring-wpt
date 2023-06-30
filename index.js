@@ -6,7 +6,7 @@ import { ENVIRONMENTS_CONFIG } from "./constants.js";
 dotenv.config();
 
 const TSB_AUTH_TOKEN = process.env.TSB_AUTH_TOKEN;
-const CURRENT_ENV = process.env.CURRENT_ENV || "qa3";
+const CURRENT_ENV = process.env.CURRENT_ENV || "production";
 const { apiHost, feHost, protocol, tokenCookie } =
   ENVIRONMENTS_CONFIG[CURRENT_ENV];
 
@@ -17,7 +17,7 @@ const dateString = new Date().toLocaleDateString("en-US", {
   day: "numeric",
 });
 
-const DESCRIPTION = "Lazy Hydrate On";
+const DESCRIPTION = "Performance test";
 
 Promise.all(
   PathsToTest.map(async (path) => {
@@ -34,9 +34,13 @@ Promise.all(
         pingback:
           "https://2411-2800-a4-17d2-5500-1ded-fa6b-107b-bf88.sa.ngrok.io",
         script: `
-      setCookie ${protocol}://${feHost} ${tokenCookie}=${TSB_AUTH_TOKEN}
+      ${
+        TSB_AUTH_TOKEN
+          ? `setCookie ${protocol}://${feHost} ${tokenCookie}=${TSB_AUTH_TOKEN}
       setCookie ${protocol}://${apiHost} ${tokenCookie}=${TSB_AUTH_TOKEN}
-      setCookie ${protocol}://t.sandbox.game ${tokenCookie}=${TSB_AUTH_TOKEN}
+      setCookie ${protocol}://t.sandbox.game ${tokenCookie}=${TSB_AUTH_TOKEN}`
+          : ""
+      }
       navigate %URL%
       `,
       },
