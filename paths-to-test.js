@@ -62,7 +62,7 @@ const aboutPaths = [
 ];
 const landsalePaths = [
   // // Landsale
-  // "landsale/"
+  "landsale/"
 ];
 const agenciesPaths = [
   // Agencies
