@@ -1,0 +1,14 @@
+{
+  "name": "listener",
+  "version": "1.0.0",
+  "description": "",
+  "main": "listener.js",
+  "scripts": {
+    "start": "node listener"
+  },
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "author": "",
+  "license": "ISC"
+}

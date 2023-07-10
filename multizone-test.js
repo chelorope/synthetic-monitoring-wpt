@@ -1,15 +1,22 @@
 import * as dotenv from "dotenv";
 import WPT from "./lib/WPTService.js";
-import PathsToTest from "./config/paths-to-test.js";
 import { ENVIRONMENTS_CONFIG } from "./config/constants.js";
 import { getCurrentDate, getArg } from "./util.js";
 
 dotenv.config();
-
 const description = getArg('-d');
 if (!description) {
     throw "Add description with -d cli flag. Eg: yarn test -d 'Test description'"
 }
+
+const locationsToTest = [
+    {id: "ec2-eu-west-3:Chrome.4G", title: "Paris AWS"}, 
+    {id: "ec2-us-east-1:Chrome.4G", title: "Virginia AWS"}, 
+    {id: "ec2-us-west-1:Chrome.4G", title: "California AWS"},
+    {id: "azure-australia-southeast:Chrome.4G", title: "Australia Azure"},
+    {id: "gce-asia-east1:Chrome.4G", title: "Taiwan GCP"},
+    {id: "ec2-ap-northeast-2:Chrome.4G", title: "Seoul AWS"},
+];
 
 const {TSB_AUTH_TOKEN, CURRENT_ENV} = process.env;
 if (!CURRENT_ENV) {
@@ -26,19 +33,14 @@ const WPTService = new WPT();
 const dateString = getCurrentDate();
 
 Promise.all(
-  PathsToTest.map(async (path) => {
+    locationsToTest.map(async (location) => {
     const response = await WPTService.runTest({
       config: {
-        url: `${feHost}/en/${path}`,
+        url: `${feHost}/en/`,
+        location: location.id,
         label: `${
           path.replace(/\//g, ".") || "home"
-        } - ${CURRENT_ENV} - ${dateString}${
-            description ? ` - ${description}` : ""
-        }`,
-        // block:
-        //   "https://www.sandbox.game/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js",
-        pingback:
-          "https://2411-2800-a4-17d2-5500-1ded-fa6b-107b-bf88.sa.ngrok.io",
+        } - ${CURRENT_ENV} - ${dateString} - ${location.title} - ${description}`,
         script: `
       ${
         TSB_AUTH_TOKEN
