@@ -1,6 +1,7 @@
 const homePaths = [
   // Home
   "",
+  // "homev2/"
 ];
 const seasonPaths = [
   // Season
@@ -78,14 +79,14 @@ const cartPaths = [
 
 export default [
   ...homePaths,
-  ...seasonPaths,
-  ...mapPaths,
-  ...marketPaths,
-  ...blogPaths,
-  // ...userPaths,
-  ...createPaths,
-  ...aboutPaths,
-  ...landsalePaths,
-  ...cartPaths,
-  ...agenciesPaths,
+  // ...seasonPaths,
+  // ...mapPaths,
+  // ...marketPaths,
+  // ...blogPaths,
+  // // ...userPaths,
+  // ...createPaths,
+  // ...aboutPaths,
+  // ...landsalePaths,
+  // ...cartPaths,
+  // ...agenciesPaths,
 ];

@@ -38,9 +38,7 @@ Promise.all(
       config: {
         url: `${feHost}/en/`,
         location: location.id,
-        label: `${
-          path.replace(/\//g, ".") || "home"
-        } - ${CURRENT_ENV} - ${dateString} - ${location.title} - ${description}`,
+        label: `home - ${CURRENT_ENV} - ${dateString} - ${location.title} - ${description}`,
         script: `
       ${
         TSB_AUTH_TOKEN
